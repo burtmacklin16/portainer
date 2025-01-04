@@ -7,6 +7,8 @@ services:
     ## https://docs.photoprism.app/getting-started/troubleshooting/#fatal-server-errors
     # restart: unless-stopped
     stop_grace_period: 10s
+    env_file:
+      - stack.env
     depends_on:
       - mariadb
     security_opt:
@@ -30,6 +32,8 @@ services:
     ## https://docs.photoprism.app/getting-started/troubleshooting/#fatal-server-errors
     restart: unless-stopped
     stop_grace_period: 5s
+    env_file:
+      - stack.env
     security_opt: # see https://github.com/MariaDB/mariadb-docker/issues/434#issuecomment-1136151239
       - seccomp:unconfined
       - apparmor:unconfined
